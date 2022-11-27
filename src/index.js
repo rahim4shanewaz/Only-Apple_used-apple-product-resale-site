@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'react-day-picker/dist/style.css';
+import ContextApi from './Context/ContextApi';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ContextApi>
     <App />
+    </ContextApi>
   </React.StrictMode>
 );
 
