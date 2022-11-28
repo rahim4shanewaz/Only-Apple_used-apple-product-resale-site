@@ -6,9 +6,18 @@ const MacBookProducts = () => {
     const {data: macBooks = [], refetch} =useQuery({
         queryKey:['macBooks'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/categories/macBook');
+            try{
+            const res = await fetch('http://localhost:5000/categories/macBook', {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
             const data = await res.json();
             return data;
+        }
+        catch (error) {
+
+        }
         }
     })
     return (

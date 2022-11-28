@@ -1,35 +1,64 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/ContextApi';
 import Accessories from './accessories/Accessories';
 import Iphone from './iphone/Iphone';
 import MackBook from './macbook/MackBook';
 
 
 const Categories = () => {
+    const { user, logOut } = useContext(AuthContext);
     const [macBooks, setMacBooks] = useState([])
     const [iphones, setIphones] = useState([])
     const [accessories, setAccessories] = useState([])
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/macBook')
-        .then(res =>res.json())
+        fetch('http://localhost:5000/macBook',{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res =>{
+            if (res.status === 401 || res.status === 403) {
+                return logOut();
+            }
+            return res.json();
+        })
         .then(data => setMacBooks(data))
-    },[])
+    },[user?.email, logOut])
 
     useEffect(() => {
-        fetch('http://localhost:5000/iphone')
-        .then(res =>res.json())
+        fetch('http://localhost:5000/iphone',{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res =>{
+            if (res.status === 401 || res.status === 403) {
+                return logOut();
+            }
+            return res.json();
+        })
         .then(data => setIphones(data))
-    },[])
+    },[user?.email, logOut])
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/accessories')
-        .then(res =>res.json())
+        fetch('http://localhost:5000/accessories',{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res =>{
+            if (res.status === 401 || res.status === 403) {
+                return logOut();
+            }
+            return res.json();
+        })
         .then(data => setAccessories(data))
-    },[])
+    },[user?.email, logOut])
 
 
     return (

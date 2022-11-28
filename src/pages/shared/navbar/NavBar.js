@@ -62,7 +62,7 @@ const NavBar = () => {
 
          
 
-          <div className='lg:absolute lg:right-14 lg:top-44'>
+          <div className='lg:absolute lg:right-14 lg:top-44' data-aos="fade-left" data-aos-duration="1500">
         <DashPanel></DashPanel>
      
           </div>
@@ -81,7 +81,8 @@ const NavBar = () => {
 
         <div className='w-full h-40 hidden lg:flex items-center justify-between lg:px-20'>
 
-            <div className='flex gap-2 text-stone-800 font-semibold'>
+            <div className='flex gap-2 text-stone-800 font-semibold' data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500">
               <small><p>HOME</p></small>
               <div className="divider divider-horizontal"></div>
              <small> <p>BLOG</p></small>
@@ -91,7 +92,8 @@ const NavBar = () => {
               <h1 className='text-4xl'>Buy & Sell</h1>
             </div>
 
-            <div className='flex gap-2  text-stone-800 font-semibold '>
+            <div className='flex gap-2  text-stone-800 font-semibold' data-aos="fade-left" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500">
               <small><p>CONTACT</p></small>
               <div className="divider divider-horizontal"></div>
               <small><p>ABOUT</p></small>

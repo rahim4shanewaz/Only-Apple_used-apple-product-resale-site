@@ -7,9 +7,20 @@ const AccessoriesProducts = () => {
     const {data: accessories = [], refetch} =useQuery({
         queryKey:['accessories'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/categories/accessories');
-            const data = await res.json();
-            return data;
+            try{
+                const res = await fetch('http://localhost:5000/categories/accessories',{
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                   
+                });
+                const data = await res.json();
+                return data;
+            }
+            catch (error) {
+
+            }
+           
         }
     })
 

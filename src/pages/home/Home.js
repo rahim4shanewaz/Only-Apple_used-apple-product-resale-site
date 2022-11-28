@@ -12,7 +12,19 @@ const Home = () => {
         <div>
            <Banner></Banner>
           <Categories></Categories>
-          <Information></Information>
+          <div class="demos previews w100" data-version="17">
+          <div  class="demo-1 aos-init aos-animate"
+       data-aos="fade-up"
+       data-aos-offset="0"
+     data-aos-anchor-placement="center-center"
+     
+     data-aos-delay="50"
+     data-aos-duration="500">
+        <Information ></Information>
+     </div>
+    
+     </div>
+          
           <MakeAppinment></MakeAppinment>
           <Contact></Contact>
          
