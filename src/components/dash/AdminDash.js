@@ -14,8 +14,8 @@ const AdminDash = ({dbUser}) => {
              <h1>{dbUser.email}</h1>
             </div>
              <div className="flex gap-2">
-             <Link to={'/dashboard'}> <button className="btn rounded-none btn-xs">All Sellers</button></Link>
-             <Link to={'/dashboard'}> <button className="btn rounded-none btn-xs">All Buyers</button></Link>
+             <Link to={'/dashboard/allsellers'}> <button className="btn rounded-none btn-xs">All Sellers</button></Link>
+             <Link to={'/dashboard/allbuyers'}> <button className="btn rounded-none btn-xs">All Buyers</button></Link>
       
       
              </div>

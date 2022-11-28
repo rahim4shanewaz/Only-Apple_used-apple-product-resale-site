@@ -1,4 +1,5 @@
 import React from 'react';
+import Information from '../../components/Information';
 import Categories from '../categories/Categories';
 import HomeCategories from '../homeCategories/HomeCategories';
 import Banner from './Banner';
@@ -10,12 +11,11 @@ const Home = () => {
     return (
         <div>
            <Banner></Banner>
-          {/* <HomeCategories></HomeCategories> */}
           <Categories></Categories>
-         
-          {/* <Underbanner></Underbanner> */}
+          <Information></Information>
           <MakeAppinment></MakeAppinment>
           <Contact></Contact>
+         
         </div>
     );
 };
