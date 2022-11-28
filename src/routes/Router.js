@@ -2,6 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import AdminRoute from "../admiRroute/AdminRoute";
 import ShowErrorPage from "../components/showErrorPage/ShowErrorPage";
 import Main from "../main/Main";
+import AccessoriesProducts from "../pages/categories/AccessoriesProducts";
+import Iphone from "../pages/categories/iphone/Iphone";
+import IPhoneProducts from "../pages/categories/IPhoneProducts";
+import MacBookProducts from "../pages/categories/MacBookProducts";
 import AddProducts from "../pages/Dashboard/AddProducts";
 import Admin from "../pages/Dashboard/Admin";
 import AllBuyres from "../pages/Dashboard/AllBuyres";
@@ -33,7 +37,19 @@ const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
-            }
+            },
+            {
+                path:'/category/macbook',
+                element:<MacBookProducts></MacBookProducts>
+            },
+            {
+                path:'/category/iphone',
+                element:<IPhoneProducts></IPhoneProducts>
+            },
+            {
+                path:'/category/accessories',
+                element:<AccessoriesProducts></AccessoriesProducts>
+            },
             
 
         ]

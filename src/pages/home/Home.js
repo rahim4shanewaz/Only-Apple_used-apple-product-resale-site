@@ -1,4 +1,5 @@
 import React from 'react';
+import Categories from '../categories/Categories';
 import HomeCategories from '../homeCategories/HomeCategories';
 import Banner from './Banner';
 import Contact from './Contact';
@@ -9,9 +10,10 @@ const Home = () => {
     return (
         <div>
            <Banner></Banner>
-          <HomeCategories></HomeCategories>
+          {/* <HomeCategories></HomeCategories> */}
+          <Categories></Categories>
          
-          <Underbanner></Underbanner>
+          {/* <Underbanner></Underbanner> */}
           <MakeAppinment></MakeAppinment>
           <Contact></Contact>
         </div>

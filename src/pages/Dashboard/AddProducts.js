@@ -40,6 +40,7 @@ const Register = () => {
         console.log(data.category)
         console.log(data.descriptions)
         console.log(data.year)
+        console.log(data.use_year)
 
        
 
@@ -193,12 +194,22 @@ const Register = () => {
 
                 </div>
 
+                <div className='flex gap-5'>
+
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Product purchase  year</span></label>
-                    <input type="text" {...register("year", {
+                    <input type="text" {...register("purchase_year", {
                         required: "year is Required"
                     })} className="input input-bordered w-full max-w-xs" />
-                    {errors.price && <p className='text-red-500'>{errors.price.message}</p>}
+                    {errors.purchase_year && <p className='text-red-500'>{errors.purchase_year.message}</p>}
+                </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Product years of use</span></label>
+                    <input type="text" {...register("use_year", {
+                        required: "year is Required"
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.use_year && <p className='text-red-500'>{errors.use_year.message}</p>}
+                </div>
                 </div>
 
 
@@ -268,3 +279,45 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+
+
+
+
+
+
+
+const date = [
+    {
+      
+      "name": "Air Pod",
+      "condition": "Good",
+      "location": "Barishal",
+      "category": "Accessories",
+      "email": "jon@g.com",
+      "purchase_year": 2018,
+      "use_year": 3,
+      "img": "https://i.ibb.co/37scWzq/download.jpg",
+      "original_price": 300,
+      "selling_price": 150,
+      "number": 19000000000,
+      "description": "The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display.The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display."
+    },
+    {
+      
+      "name": "iphone Charger",
+      "condition": "Excellent",
+      "location": "Dhaka",
+      "category": "Accessories",
+      "email": "jabir@ya.com",
+      "purchase_year": 2020,
+      "use_year": 1,
+      "img": "https://i.ibb.co/fHt1pQp/images-2.jpg",
+      "original_price": 180,
+      "selling_price": 80,
+      "number": 19000000000,
+      "description": "The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display.The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display.."
+    }
+  ]
