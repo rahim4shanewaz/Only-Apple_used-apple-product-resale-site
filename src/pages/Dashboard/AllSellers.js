@@ -1,9 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import ConfirmationModal from '../../components/modal/ConfirmationModal';
+import Loading from '../shared/loading/Loading';
 
 const AllSellers = () => {
+    const [deletingSeller, setDeletingSeller] = useState(null);
+    const closeModal = () => {
+        setDeletingSeller(null);
+    }
 
-    const {data: sellers = [] } = useQuery({
+    const {data: sellers = [], isLoading, refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: async() =>{
 
@@ -24,6 +31,53 @@ const AllSellers = () => {
             
         }
     });
+
+
+    const handleDeleteSeller = seller => {
+        fetch(`http://localhost:5000/seller/${seller._id}`, {
+            method: 'DELETE', 
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                refetch();
+                toast.success(`Seller ${seller.name} deleted successfully`)
+            }
+        })
+    }
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+
+    const handleVerify = id => {
+        fetch(`http://localhost:5000/seller/verify/${id}`, {
+            method: 'PUT', 
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0){
+                toast.success('Seller Verified')
+                refetch();
+            }
+        })
+    }
+
+
+
+
+
+
+
+
+
     return (
         <div>
         <h1>this is all seller  sections</h1>
@@ -42,12 +96,29 @@ const AllSellers = () => {
                     <h1 className='text-center text-red-500'>{seller.email}</h1>
                     <h1 className='text-center'>{seller.role}</h1>
                   
-                        <button className="btn btn-outline btn-error">Delete</button>
+                       {seller?.verify ?
+                         <button className="btn btn-outline btn-error">Verified</button>
+                       :
+                         <button onClick={() => handleVerify(seller._id) }className="btn btn-outline btn-error">Verify</button>
+                       }
+
+                        <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                     </div>
 
             </div>)
         }
         </div>
+        {
+             deletingSeller && <ConfirmationModal
+             title={`Are you sure you want to delete?`}
+             message={`If you delete ${deletingSeller.name}. It cannot be undone.`}
+             successAction = {handleDeleteSeller}
+             successButtonName="Delete"
+             modalData = {deletingSeller}
+             closeModal = {closeModal}
+         >
+         </ConfirmationModal>
+        }
         
     </div>
     );
