@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import DashPanel from '../../../components/dash/DashPanel';
 import { AuthContext } from '../../../Context/ContextApi';
+import apple from '../../../assets/icons/icons8-apple-logo.gif'
 
 const NavBar = () => {
 
@@ -21,19 +22,12 @@ const NavBar = () => {
 
 
   const menuItems = <React.Fragment>
-    <li><Link to={'/'}> <small>HOME</small> </Link></li>
+    <li><Link to={'/'}> <small className='style-font'>HOME</small> </Link></li>
     <div className="divider divider-horizontal"></div>
    
-    <li><Link to={'/'}> <small>CATEGORIES</small> </Link></li>
+    <li><Link to={'/blog'}> <small className='style-font'>BLOG</small> </Link></li>
     <div className="divider divider-horizontal"></div>
     
- {/* {user?.email ?
-     <li><Link to="/dashboard">Dashboard <small className='text-green-400 font-bold'>{userRole}</small></Link></li>
-     :
-     <li><Link to={'/dashboard'}>Dashboard</Link></li>
- } */}
- 
-
     {user?.uid ?
             <>
                 
@@ -84,20 +78,22 @@ const NavBar = () => {
 
             <div className='flex gap-2 text-stone-800 font-semibold' data-aos="fade-right" data-aos-anchor="#example-anchor"
      data-aos-offset="500" data-aos-duration="1500">
-              <small><p>HOME</p></small>
+            <Link to={'/blog'}> <small>BLOG</small> </Link>
               <div className="divider divider-horizontal"></div>
-             <small> <p>BLOG</p></small>
+              <Link to={'/about'}> <small>ABOUT US</small> </Link>
             </div>
 
-            <div>
-              <h1 className='text-4xl'>Buy & Sell</h1>
+            <div  className='  p-5 flex flex-col justify-center items-center'>
+             <img className='h-14 w-14' src={apple} alt="" />
+             <p data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500" data-aos="fade-up" className='style-font text-xl font-semibold'>APPLE ONLY</p>
             </div>
 
             <div className='flex gap-2  text-stone-800 font-semibold' data-aos="fade-left" data-aos-anchor="#example-anchor"
      data-aos-offset="500" data-aos-duration="1500">
-              <small><p>CONTACT</p></small>
+              <Link to={'/contact'}> <small>CONTACT US</small> </Link>
               <div className="divider divider-horizontal"></div>
-              <small><p>ABOUT</p></small>
+              <Link to={'/'}> <small>FAQ</small> </Link>
             </div>
 
           </div>
