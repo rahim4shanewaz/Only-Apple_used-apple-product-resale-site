@@ -6,13 +6,13 @@ import verify from '../../assets/icons/icons8-approval.gif';
 const SellerDash = ({dbUser}) => {
     return (
         
-        <small><div className="lg:w-52 bg-base-100 shadow-xl">
+        <small><div className="lg:w-52 text-white border shadow-xl">
             <div className="p-3">
             <div className='mb-2'>
 
 
             <div className='flex gap-1 items-center'>
-            <h2>{dbUser.role} </h2>
+            <h2 className='text-xl'>{dbUser.role}</h2>
             <div>
               { dbUser?.verify ?
                 
@@ -29,8 +29,8 @@ const SellerDash = ({dbUser}) => {
             </div>
            
             </div>
-             <h1> {dbUser.name}</h1>
-             <h1>{dbUser.email}</h1>
+            <h1 className='text-black font-bold'> {dbUser.name}</h1>
+             <h1 className='text-black font-bold'>{dbUser.email}</h1>
             </div>
              <div className="flex flex-col gap-2">
              <Link to={'/dashboard/sellers/allproducts'}> <button className="btn rounded-none btn-xs">My Products</button></Link>

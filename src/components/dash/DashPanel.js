@@ -21,7 +21,7 @@ const DashPanel = () => {
     const buyer = 'buyer';
 
     if (!user) {
-        return <Nouser></Nouser>
+        return null;
         
     }
 

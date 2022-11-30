@@ -6,12 +6,12 @@ const AdminDash = ({dbUser}) => {
        
           
 
-            <small><div className="lg:w-52 bg-base-100 shadow-xl">
+            <small><div className="lg:w-52  text-white border shadow-xl">
             <div className="p-3">
             <div className='mb-2'>
-             <h2> Role:{dbUser.role}</h2>
-             <h1> {dbUser.name}</h1>
-             <h1>{dbUser.email}</h1>
+             <h2 className='text-xl'>{dbUser.role}</h2>
+             <h1 className='text-black font-bold'> {dbUser.name}</h1>
+             <h1 className='text-black font-bold'>{dbUser.email}</h1>
             </div>
              <div className="flex gap-2">
              <Link to={'/dashboard/allsellers'}> <button className="btn rounded-none btn-xs">All Sellers</button></Link>
