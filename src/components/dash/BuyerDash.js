@@ -12,7 +12,7 @@ const BuyerDash = ({dbUser}) => {
              <h1 className='text-black font-bold'>{dbUser.email}</h1>
         </div>
          <div className="flex gap-2">
-         <Link to={'/dashboard'}> <button className="btn rounded-none btn-xs">My All Orders</button></Link>
+         <Link to={'/dashboard/buyer/order'}> <button className="btn rounded-none btn-xs">My All Orders</button></Link>
         
   
   

@@ -25,7 +25,7 @@ const BookingModalIphone = ({booking, isLoading, setBooking,refetch}) => {
         }
 
 
-           fetch(`http://localhost:5000/product/booking/${booking._id}`, {
+           fetch(`https://final-server-lovat.vercel.app/product/booking/${booking._id}`, {
             method: 'PUT', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -60,37 +60,37 @@ const BookingModalIphone = ({booking, isLoading, setBooking,refetch}) => {
 
     return (
         <div>
-            {/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-3" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box relative">
-    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 className="text-lg font-bold">{booking.name}</h3>
-    <h3 className="text-lg font-bold">{dbUser.name}</h3>
-    <h3 className="text-lg font-bold">{dbUser.email}</h3>
-    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-                     
-                        
-                        <input name="name" type="text" defaultValue={dbUser?.name} disabled placeholder="Your Name" className="input w-full input-bordered" />
-                        <input name="email" type="email" defaultValue={dbUser?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
-                        <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" />
-                        <select name='location' className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>Location</option>
-                            <option value='Dhaka'>Dhaka</option>
-                            <option value='Khulna'>Khulna</option>
-                            <option value='Barishal'>Barishal</option>
-                            <option value='Jessore'>Jessore</option>
-                            <option value='Chittagong'>Chittagong</option>
-                            </select>
-                        <br />
-                        <input className='btn btn-accent w-full' type="submit" value="Submit" />
-                       
-                    </form>
-  </div>
-</div>
+          
+        <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box rounded-none p-10 relative">
+            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <h3 className=" text-3xl font-bold">{booking.name}</h3>
+            <h3 className="text-lg font-bold">Price: ${booking.selling_price}</h3>
             
+           
+            <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
+                             
+                                
+                                <input name="name" type="text" defaultValue={dbUser?.name} disabled placeholder="Your Name" className="input w-full input-bordered rounded-none" />
+                                <input name="email" type="email" defaultValue={dbUser?.email} disabled placeholder="Email Address" className="input w-full rounded-none input-bordered" />
+                                <input name="phone" type="text" placeholder="Phone Number" className="input rounded-none w-full input-bordered" />
+                                <select name='location' className="select select-bordered rounded-none w-full max-w-xs">
+                                    <option disabled selected>Location</option>
+                                    <option value='Dhaka'>Dhaka</option>
+                                    <option value='Khulna'>Khulna</option>
+                                    <option value='Barishal'>Barishal</option>
+                                    <option value='Jessore'>Jessore</option>
+                                    <option value='Chittagong'>Chittagong</option>
+                                    </select>
+                                <br />
+                                <input className='btn rounded-none text-white bg-slate-400 border-none btn-accent w-full' type="submit" value="Booking Confirm" />
+                               
+                            </form>
+          </div>
         </div>
+                    
+                </div>
     );
 };
 

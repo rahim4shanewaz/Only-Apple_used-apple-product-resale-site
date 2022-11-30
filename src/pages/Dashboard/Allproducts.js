@@ -14,11 +14,7 @@ const Allproducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/seller/products?id=${dbUser._id}`, {
-                    headers: {
-                        authorization: `bearer ${localStorage.getItem('accessToken')}`
-                    }
-                });
+                const res = await fetch(`https://final-server-lovat.vercel.app/seller/products?id=${dbUser._id}`);
                 const data = await res.json();
                
                
@@ -32,18 +28,15 @@ const Allproducts = () => {
 
    
     const handleDeleteProduct = product => {
-        fetch(`http://localhost:5000/seller/product/${product._id}`, {
-            method: 'DELETE', 
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
+        fetch(`https://final-server-lovat.vercel.app/seller/product/${product._id}`, {
+            method: 'DELETE'})
         .then(res => res.json())
         .then(data => {
             if(data.deletedCount > 0){
-                refetch();
+              
                 toast.success(`Seller ${product.name} deleted successfully`)
             }
+            refetch();
         })
     }
 
@@ -54,9 +47,11 @@ const Allproducts = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
-        <h1>this is all buyers sections</h1>
-       <div className='grid grid-cols-3 p-20 m-20 gap-10'>
+        <div className='mt-28'>
+
+            <h1 className='text-4xl text-center'>My All Added Products</h1>
+      
+       <div  className='grid grid-cols-3 items-start p-10 gap-2 '>
         {
             products.map(product => <Product key={product._id} handleDeleteProduct={handleDeleteProduct} product={product}
                 refetch={refetch}

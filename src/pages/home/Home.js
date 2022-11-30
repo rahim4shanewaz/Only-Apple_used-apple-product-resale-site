@@ -1,12 +1,13 @@
 import React from 'react';
 import AdvertiseSection from '../../components/advertiseSection/AdvertiseSection';
+import ContactSEction from '../../components/ContactSEction';
 import Information from '../../components/Information';
 import Categories from '../categories/Categories';
 import HomeCategories from '../homeCategories/HomeCategories';
 import Banner from './Banner';
-import Contact from './Contact';
 
-import Underbanner from './Underbanner';
+
+
 
 const Home = () => {
     return (
@@ -23,12 +24,14 @@ const Home = () => {
      data-aos-delay="50"
      data-aos-duration="500">
         <Information ></Information>
+        <hr />
+        <ContactSEction></ContactSEction>
      </div>
     
      </div>
           
         
-          <Contact></Contact>
+         
          
         </div>
     );

@@ -8,11 +8,13 @@ const Blog = () => {
 
 
                 <div className='m-5 p-10 shadow bg-slate-50 '>
-                <h1 className='text-4xl text-center font-bold mb-5'>
+                <h1 data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1000" className='text-4xl text-center font-bold mb-5'>
                 What are the different ways to manage a state in a React application?
 
                 </h1>
-                <p className='font-bold'>
+                <p data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500" className='font-bold'>
                 Managing state in your React apps isn’t as simple as using useState or useReducer. <br />
                 The Four Kinds of React State to Manage <br />
                     1. Local state <br />
@@ -65,11 +67,13 @@ The reason to not use Context for global state management lies in the way it wor
                 </p>
                 </div>
                 <div className='m-5 p-10 shadow bg-slate-50'>
-                <h1 className='text-4xl text-center font-bold mb-5'>
+                <h1 data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1000" className='text-4xl text-center font-bold mb-5'>
                 How does prototypical inheritance work?
 
                 </h1>
-                <p className='font-bold'>
+                <p data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500" className='font-bold'>
                 How does the prototypical inheritance differ from the class inheritance?
 The most important difference between class- and prototype-based inheritance is that a class defines a type which can be instantiated at runtime, whereas a prototype is itself an object instance. <br /><br /> In programming, we often want to take something and extend it.
 
@@ -87,7 +91,8 @@ Although classes are now widely adopted and have become a new paradigm in JavaSc
 
                 </p>
                 </div>
-                <div className='m-5 p-10 shadow bg-slate-50'>
+                <div data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="2000" className='m-5 p-10 shadow bg-slate-50'>
                 <h1 className='text-4xl text-center font-bold mb-5'>
                 What is a unit test? Why should we write unit tests?
 
@@ -110,20 +115,23 @@ You definitely can do these things with unit frameworks, but it might quickly be
 
                 </p>
                 </div>
-                <div className='m-5 p-10 shadow bg-slate-50'>
+                <div data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="2000" className='m-5 p-10 shadow bg-slate-50'>
                 <h1 className='text-4xl text-center font-bold mb-5'>
                 React vs. Angular vs. Vue?
 
                 </h1>
                
                
-                    <div className='flex justify-around border border-slate-300 p-5 mb-5'>
+                    <div data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="2000" className='flex justify-around border border-slate-300 p-5 mb-5'>
                    
                     <p className='font-bold'>React </p>
                     <p className='font-bold'>Angular </p>
                     <p className='font-bold'>Vue </p>
                     </div>
-                    <div className='grid grid-cols-3 gap-3 text-center'>
+                    <div data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="2000" className='grid grid-cols-3 gap-3 text-center'>
                     <div>
                     <p className='font-bold'>Facebook released React.js in March 2013 as a JavaScript library. Because React just provides one view, it is not appropriate for building an MVC architecture: you must solve the model and controller yourself. Besides this, there are only advantages and lots of advantages.
 

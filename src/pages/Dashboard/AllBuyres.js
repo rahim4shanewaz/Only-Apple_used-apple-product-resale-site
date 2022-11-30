@@ -15,7 +15,7 @@ const AllBuyres = () => {
         queryKey: ['buyers'],
         queryFn: async() =>{
             try{
-                const res = await fetch('http://localhost:5000/users/allbuyer', {
+                const res = await fetch('https://final-server-lovat.vercel.app/users/allbuyer', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -34,7 +34,7 @@ const AllBuyres = () => {
 
     
     const handleDeleteBuyer = buyer => {
-        fetch(`http://localhost:5000/buyer/${buyer._id}`, {
+        fetch(`https://final-server-lovat.vercel.app/buyer/${buyer._id}`, {
             method: 'DELETE', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -61,25 +61,25 @@ const AllBuyres = () => {
 
     return (
         <div>
-            <h1>this is all buyers sections</h1>
-            <div className='p-10 m-10'>
+            <div data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="2000" className='p-10 m-10 mt-20'>
             {
                 buyers.map(buyer => <div
                     key={buyer._id}
                     >
-                        <div className='flex gap-5 items-center shadow mt-2 bg-slate-100'>
+                        <div className='flex gap-3 items-center shadow-xl  mt-2 bg-slate-50'>
                         <div className="avatar m-3">
                             <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={buyer.img}  alt="" />
                             </div>
                             </div>
                            
-                        <h1 className='text-center text-green-500'>{buyer.name}</h1>
-                        <h1 className='text-center text-red-500'>{buyer.email}</h1>
-                        <h1 className='text-center'>{buyer.role}</h1>
+                        <h1 className='text-center text-3xl font-bold '>{buyer.name}</h1>
+                        <h1 className='text-center font-bold text-slate-500'>{buyer.email}</h1>
+                        <h1 className='text-center font-bold'>{buyer.role}</h1>
                        
-                        <button onClick={() => setDeletingBuyer(buyer) } className="btn btn-outline btn-error">Delete</button>
-                        <label onClick={() => setDeletingBuyer(buyer)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
+                       
+                        <label onClick={() => setDeletingBuyer(buyer)} htmlFor="confirmation-modal" className="btn btn-sm rounded-none btn-error">Delete</label>
                         </div>
 
                 </div>)

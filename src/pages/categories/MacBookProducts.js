@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/ContextApi';
 import BookingModal from './bookingModal/BookingModal';
 import ProductMacBook from './ProductMacBook';
+import mac from '../../assets/icons/icons8-checked-laptop.gif';
 
 const MacBookProducts = () => {
 
@@ -12,7 +13,7 @@ const MacBookProducts = () => {
         queryKey:['macBooks'],
         queryFn: async() => {
             try{
-            const res = await fetch('http://localhost:5000/categories/macBook', {
+            const res = await fetch('https://final-server-lovat.vercel.app/categories/macBook', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -27,9 +28,16 @@ const MacBookProducts = () => {
     })
     return (
         <div>
-            <h1>this is All MackBook products</h1>
-            <h1>length: {macBooks.length}</h1>
-          <div className='grid grid-cols-3'>
+           <div className='text-center lg:mt-20 flex gap-3 justify-center'>
+                    <h1 className='text-xl text-slate-500 font-bold'>CATEGORY</h1>
+                    <div className="divider divider-horizontal"></div>
+                    <h1 className='text-xl text-slate-500 font-bold'>MACBOOK</h1>
+                    <div className="divider divider-horizontal"></div>
+                    <img  data-aos="fade-left" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500" className='w-10 h-10' src={mac} alt="" />
+                    
+                    </div>
+          <div  className='grid lg:grid-cols-2 mt-28'>
           {
                 macBooks.map(macBook => <ProductMacBook 
                     key={macBook._id}

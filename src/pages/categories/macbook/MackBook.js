@@ -1,43 +1,66 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const MackBook = ({mackBook}) => {
+  const description = mackBook.description.slice(1,500)
     return (
         <div className='mb-5'>
-       {/* <div className="card w-full h-96 bg-base-100 shadow-xl image-full">
-  <figure><img className='h-full object-cover' src={mackBook.img} alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">{mackBook.name}</h2>
-    <p></p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Nowssssssssss</button>
-    </div>
-  </div>
-</div> */}
-
-
-
-
-
-
-
-
-<div className="card w-11/12 h bg-slate-50 glass rounded-none">
+    
+<div className="card w-11/12 lg:h bg-slate-50 glass rounded-none">
  <div className='img-h'>
  <img className='h-full w-full object-cover' src={mackBook.img} alt="car!"/>
  </div>
   <small>
-  <div className="card-body">
-    <h2 className="card-title">{mackBook.name}</h2>
-    <p>Sell Price: ${mackBook.selling_price}</p>
-    <p>Sell Price: ${mackBook.original_price}</p>
-    <div className="card-actions justify-end">
-    <div>
-               <Link to={"/category/macbook"}> <button className="btn btn-outline btn-secondary">See All Products</button></Link>
-               </div>
-    </div>
+  <div className=" p-5">
+    <h2 className="card-title mb-3 text-slate-700 ">{mackBook.name}</h2>
+    <hr />
+
+
+    
+<div className=' flex justify-between mt-3'>
+<div>
+  <div className='flex gap-10 justify-start'>
+   <p className='font-bold text-slate-700 '>Sell Price: <span className='text-green-400 font-bold '> $</span> {mackBook.selling_price}</p>
+    <p className='font-bold text-slate-700 '>Original Price:<span className='text-green-400 font-bold'> $</span> {mackBook.original_price}</p>
+   </div>
+   <div className='flex gap-10 justify-start '>
+   <p className='font-bold text-slate-700 '>Year Of Purchase: {mackBook.purchase_year}</p>
+    <p className='font-bold text-left text-slate-700 '>Year Of Use: {mackBook.use_year}</p>
+   </div>
+    <p className='font-bold text-slate-700 '>Condition: <span className='text-green-400 font-bold'>{mackBook.condition}</span> </p> 
   </div>
+
+
+  <div>
+  
+          <p  className='font-bold text-slate-500 '>{mackBook.seller_email}</p>
+          <p  className='font-bold text-slate-500 '>{mackBook.number}</p>
+          <p  className='font-bold text-slate-500 '>{mackBook.location}</p>
+  </div>
+</div>
+
+
+
+
+
+    <p className='font-bold mt-2 text-slate-700 '>Descriptions: </p> 
+    <p className='font-bold text-slate-500 '>{description} </p>
+    <div className="">
+     
+    
+               <div data-aos="fade-right" data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500">
+     
+
+         <Link to={'/category/macbook'}> <small> <button className="btn mt-3 mb-10 max-w-xs rounded-none btn-sm outline-none border-none shadow bg-slate-400">See all Products </button></small> </Link>
+        
+         </div>
+        
+    </div>
+  </div>  
   </small>
+ 
 </div>
 
             

@@ -3,6 +3,8 @@ import AdminRoute from "../admiRroute/AdminRoute";
 import About from "../components/About/About";
 import ContactUs from "../components/About/ContactUs";
 import Blog from "../components/Blog/Blog";
+import BuyerBooking from "../components/BuyerBooking";
+import NotFounf from "../components/NotFounf";
 import ShowErrorPage from "../components/showErrorPage/ShowErrorPage";
 import Main from "../main/Main";
 import AccessoriesProducts from "../pages/categories/AccessoriesProducts";
@@ -73,6 +75,9 @@ const router = createBrowserRouter([
         ]
     },
     {
+
+
+
         path:'/dashboard',
         element:<PrivateRoute>
             <Dashboard></Dashboard>
@@ -99,9 +104,19 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/sellers/allproducts',
                 element: <Allproducts></Allproducts>
-            }
+            },
+            {
+                path: '/dashboard/buyer/order',
+                element: <BuyerBooking></BuyerBooking>
+            },
+
 
         ]
+    },
+
+    {
+path:'*',
+element:<NotFounf></NotFounf>
     }
   
 ]);

@@ -80,7 +80,7 @@ const NavBar = () => {
      data-aos-offset="500" data-aos-duration="1500">
             <Link to={'/blog'}> <small>BLOG</small> </Link>
               <div className="divider divider-horizontal"></div>
-              <Link to={'/about'}> <small>ABOUT US</small> </Link>
+              <Link to={'/'}> <small>ABOUT US</small> </Link>
             </div>
 
             <div  className='  p-5 flex flex-col justify-center items-center'>
@@ -93,7 +93,7 @@ const NavBar = () => {
      data-aos-offset="500" data-aos-duration="1500">
               <Link to={'/contact'}> <small>CONTACT US</small> </Link>
               <div className="divider divider-horizontal"></div>
-              <Link to={'/'}> <small>FAQ</small> </Link>
+              <Link  to={'/'}> <small>FAQ</small> </Link>
             </div>
 
           </div>

@@ -6,6 +6,7 @@ import { AuthContext } from '../../Context/ContextApi';
 import useToken from '../../hooks/useToken';
 
 
+
 const Register = () => {
     const { user, loading, dbUser } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -47,7 +48,7 @@ const Register = () => {
                     location: data.location,
                     category: data.category,
                     email: data.email,
-                    purchase_year: data.year,
+                    purchase_year: data.purchase_year,
                     use_year: data.use_year,
                     img: imgData.data.url,
                     original_price: data.original_price,
@@ -75,7 +76,7 @@ const Register = () => {
         
         
        
-        fetch('http://localhost:5000/addedproduct', {
+        fetch('https://final-server-lovat.vercel.app/addedproduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -225,7 +226,7 @@ const Register = () => {
 
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Email</span></label>
-                    <input type="email" {...register("email", {
+                    <input value={user.email} type="email" {...register("email", {
                         required: true
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}

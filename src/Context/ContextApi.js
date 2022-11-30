@@ -17,14 +17,14 @@ const ContextApi = ({children}) =>{
     const googleProvider = new GoogleAuthProvider();
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://final-server-lovat.vercel.app/users/${user?.email}`)
         .then(res => res.json())
         .then(data =>setUserRole(data.role) );
        
     } ,[user?.email])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://final-server-lovat.vercel.app/users/${user?.email}`)
         .then(res => res.json())
         .then(data =>setDbUser(data));
        

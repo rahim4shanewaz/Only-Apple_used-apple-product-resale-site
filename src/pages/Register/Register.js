@@ -107,7 +107,7 @@ const Register = () => {
         const user ={name, email, role, img};
         
        
-        fetch('http://localhost:5000/users', {
+        fetch('https://final-server-lovat.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -138,71 +138,76 @@ const Register = () => {
 
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
-        <div className='w-96 p-7'>
-            <h2 className='text-xl text-center'>Sign Up</h2>
+        <div className='h-[800px]  flex justify-center items-center'>
+        <div className='w-96 p-5 shadow-xl bg-slate-50'>
+        <h2 className='text-3xl font-bold text-center'>Register</h2>
             <form onSubmit={handleSubmit(handleSignUp)}>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Name</span></label>
+                
+                
+                
+                <div className=''>
+                <div className="form-control w-full ">
+                    <label className="label"> <span className="label-text font-bold ">Name</span></label>
                     <input type="text" {...register("name", {
                         required: "Name is Required"
-                    })} className="input input-bordered w-full max-w-xs" />
+                    })} className="input rounded-none input-bordered w-full " />
                     {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                 </div>
 
-
-
-
-
-                <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Role</span></label>
+                <div className="form-control w-full ">
+                    <label className="label"> <span className="label-text font-bold">Role</span></label>
                     <select 
                     {...register('role')}
-                    className="select select-bordered w-full max-w-xs">
+                    className="select select-bordered rounded-none w-full  ">
                         <option disabled selected>What is Purpose</option>
                         <option>buyer</option>
                         <option>seller</option>
                     </select>
                 </div>
-
-                <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Photo</span></label>
-                    <input type="file" {...register("image", {
-                        required: "Photo is Required"
-                    })} className=" w-full max-w-xs" />
-                    {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
                 </div>
 
 
-                <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Email</span></label>
+
+                
+                    <div className='flex gap-3'>
+
+                <div className="form-control w-full  ">
+                    <label className="label"> <span className="label-text font-bold">Email</span></label>
                     <input type="email" {...register("email", {
                         required: true
-                    })} className="input input-bordered w-full max-w-xs" />
+                    })} className="input rounded-none input-bordered w-full  " />
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                 </div>
 
-
-
-
-
-
-
-                <div className="form-control w-full max-w-xs">
-                    <label className="label"> <span className="label-text">Password</span></label>
+                <div className="form-control w-full  ">
+                    <label className="label"> <span className="label-text font-bold">Password</span></label>
                     <input type="password" {...register("password", {
                         required: "Password is required",
                         // minLength: { value: 6, message: "Password must be 6 characters long" },
                         // pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters' }
-                    })} className="input input-bordered w-full max-w-xs" />
+                    })} className="input rounded-none input-bordered w-full  " />
                     {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                 </div>
-                <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
+                </div>
+
+
+
+                <div className="form-control w-full  ">
+                    <label className="label"> <span className="label-text font-bold">Photo</span></label>
+                    <input type="file" {...register("image", {
+                        required: "Photo is Required"
+                    })} className=" w-full  " />
+                    {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
+                </div>
+
+
+
+                <input className="btn mt-3 mb-10  rounded-none btn-sm outline-none border-none shadow-xl bg-slate-400" value="Register" type="submit" />
                 {signUpError && <p className='text-red-600'>{signUpError}</p>}
             </form>
-            <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
+            <p>Already have an account <Link className='text-secondary font-bold' to="/login">Please Login</Link></p>
             <div className="divider">OR</div>
-            <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+            <button onClick={handleGoogleSignIn} className='btn btn-outline rounded-none  bg-slate-400 text-white w-full'>CONTINUE WITH GOOGLE</button>
 
         </div>
     </div>

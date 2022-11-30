@@ -1,3 +1,27 @@
+# Live Site Link
+https://final-2fb5a.web.app/
+
+# ONLY APPLE
+A resale website Only for apple Product.
+# Key Features:
+1.Client can Review service after login. Also, can continue with google Account
+2.Users can Add their own products for sale (seller)
+2.Users can Buy  products (Buyer)
+3.Client and Users Can delete their specific Product and Order
+
+# Technology Used:
+React JS, JavaScript, HTML5, CSS-Tailwind, Node JS, Express JS,
+MongoDB, Firebase Authentication, JWT Authentication.
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
