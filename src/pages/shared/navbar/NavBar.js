@@ -84,9 +84,9 @@ const NavBar = () => {
             </div>
 
             <div  className='  p-5 flex flex-col justify-center items-center'>
-             <img className='h-14 w-14' src={apple} alt="" />
-             <p data-aos-anchor="#example-anchor"
-     data-aos-offset="500" data-aos-duration="1500" data-aos="fade-up" className='style-font text-xl font-semibold'>APPLE ONLY</p>
+             <img data-aos-anchor="#example-anchor"
+     data-aos-offset="500" data-aos-duration="1500" data-aos="fade-down"  className='h-14 w-14' src={apple} alt="" />
+             <p className='style-font text-xl font-semibold'>APPLE ONLY</p>
             </div>
 
             <div className='flex gap-2  text-stone-800 font-semibold' data-aos="fade-left" data-aos-anchor="#example-anchor"

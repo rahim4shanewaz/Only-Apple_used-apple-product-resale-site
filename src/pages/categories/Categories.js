@@ -66,22 +66,26 @@ const Categories = () => {
             
                  <div>
             
-            <div className='grid grid-cols-3 gap-5 m-10'>
-               <div>
-
+            <div className='grid grid-cols-1 gap-5 m-10'>
+               <div className='grid grid-cols-2 gap-10 border border-slate-300 p-5' >
                 {
+                    
                     macBooks.map(mackBook => <MackBook 
                     key={mackBook._id}
                     mackBook={mackBook}
                     >  
                     </MackBook>)
                 }
-
-                 <Link to={"/category/macbook"}> <button className="btn btn-outline btn-secondary">See All Products</button></Link>
-
                </div>
 
-               <div>
+
+
+
+
+
+
+
+               <div className='grid grid-cols-2 gap-10 border'>
                 {
                     iphones.map(iphone => <Iphone 
                         key={iphone._id}
@@ -92,7 +96,7 @@ const Categories = () => {
                  <Link to={'/category/iphone'}> <button className="btn btn-outline btn-secondary">See All Products</button></Link>
                </div>
 
-               <div>
+               <div className='grid grid-cols-2 gap-10'>
                 {
                     accessories.map(accessory => <Accessories 
                         key={accessory._id}
@@ -100,7 +104,7 @@ const Categories = () => {
                         >  
                         </Accessories>)
                 }
-                 <Link to={'/category/accessories'}> <button className="btn btn-outline btn-secondary">See All Products</button></Link>
+               <div>  <Link to={'/category/accessories'}> <button className="btn btn-outline btn-secondary">See All Products</button></Link></div>
                </div>
             </div>
             </div>

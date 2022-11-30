@@ -32,7 +32,7 @@ const SellerDash = ({dbUser}) => {
             <h1 className='text-black font-bold'> {dbUser.name}</h1>
              <h1 className='text-black font-bold'>{dbUser.email}</h1>
             </div>
-             <div className="flex flex-col gap-2">
+             <div className="flex flex-col justify-end items-end gap-2">
              <Link to={'/dashboard/sellers/allproducts'}> <button className="btn rounded-none btn-xs">My Products</button></Link>
              <Link to={'/dashboard/sellers/addproducts'}> <button className="btn rounded-none btn-xs">Add Products</button></Link>
       
