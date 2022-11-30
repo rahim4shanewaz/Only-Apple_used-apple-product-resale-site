@@ -76,7 +76,7 @@ const router = createBrowserRouter([
     },
     {
 
-
+// private route
 
         path:'/dashboard',
         element:<PrivateRoute>

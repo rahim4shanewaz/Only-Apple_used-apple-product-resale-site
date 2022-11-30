@@ -4,6 +4,8 @@ import verify from '../../assets/icons/icons8-approval.gif';
 
 
 const SellerDash = ({dbUser}) => {
+
+  //seller dash board
     return (
         
         <small><div className="lg:w-52 text-white border shadow-xl">
