@@ -2,6 +2,7 @@ import React from 'react';
 import AdvertiseSection from '../../components/advertiseSection/AdvertiseSection';
 import ContactSEction from '../../components/ContactSEction';
 import Information from '../../components/Information';
+import useHooks from '../../components/useTitles';
 import Categories from '../categories/Categories';
 import HomeCategories from '../homeCategories/HomeCategories';
 import Banner from './Banner';
@@ -10,6 +11,7 @@ import Banner from './Banner';
 
 
 const Home = () => {
+   useHooks('AO')
     return (
         <div>
            <Banner></Banner>

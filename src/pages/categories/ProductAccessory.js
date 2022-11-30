@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ProductAccessory = ({accessory,setBooking,refetch }) => {
     const description = accessory.description.slice(1,500)
+    const time = accessory.time.slice(0,10)
     return (
         <div className='p-10'>
        
@@ -33,6 +34,7 @@ const ProductAccessory = ({accessory,setBooking,refetch }) => {
         <p className='font-bold text-left text-slate-700 '>Year Of Use: {accessory.use_year}</p>
        </div>
         <p className='font-bold text-slate-700 '>Condition: <span className='text-green-400 font-bold'>{accessory.condition}</span> </p> 
+        <p className='font-bold text-slate-500 mt-2 '><span className='text-slate-700'>Published Date:</span> {time} </p>
       </div>
     
     
@@ -50,6 +52,7 @@ const ProductAccessory = ({accessory,setBooking,refetch }) => {
     
         <p className='font-bold mt-2 text-slate-700 '>Descriptions: </p> 
         <p className='font-bold text-slate-500 '>{description} </p>
+       
         <div className="">
          
         

@@ -4,8 +4,10 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../Context/ContextApi';
 import Loading from '../pages/shared/loading/Loading';
 import BuyerBookingProduct from './BuyerBookingProduct';
+import useHooks from './useTitles';
 
 const BuyerBooking = () => {
+    useHooks('My Booking')
 
     //booking function.
 

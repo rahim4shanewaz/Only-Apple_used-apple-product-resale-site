@@ -7,6 +7,7 @@ import MackBook from './macbook/MackBook';
 
 const ProductMacBook = ({macBook , setBooking, refetch}) => {
   const description = macBook.description.slice(1,500)
+  const time = macBook.time.slice(0,10)
 
  
 
@@ -69,6 +70,7 @@ const ProductMacBook = ({macBook , setBooking, refetch}) => {
           <p className='font-bold text-left text-slate-700 '>Year Of Use: {macBook.use_year}</p>
          </div>
           <p className='font-bold text-slate-700 '>Condition: <span className='text-green-400 font-bold'>{macBook.condition}</span> </p> 
+          <p className='font-bold text-slate-500 mt-2 '><span className='text-slate-700'>Published Date:</span> {time} </p>
         </div>
       
       

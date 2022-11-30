@@ -2,6 +2,7 @@ import React from 'react';
 
 const ProductIphone = ({iphone,setBooking}) => {
   const description = iphone.description.slice(1,500)
+  const time = iphone.time.slice(0,10)
     return (
 //         <div className='p-10'>
 //            <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -49,6 +50,7 @@ const ProductIphone = ({iphone,setBooking}) => {
                <p className='font-bold text-left text-slate-700 '>Year Of Use: {iphone.use_year}</p>
               </div>
                <p className='font-bold text-slate-700 '>Condition: <span className='text-green-400 font-bold'>{iphone.condition}</span> </p> 
+               <p className='font-bold text-slate-500 mt-2 '><span className='text-slate-700'>Published Date:</span> {time} </p>
              </div>
            
            

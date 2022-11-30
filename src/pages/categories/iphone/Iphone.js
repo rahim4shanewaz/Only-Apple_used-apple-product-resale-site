@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Iphone = ({iphone}) => {
+ 
   const description = iphone.description.slice(1,500)
+  const time = iphone.time.slice(0,10)
     return (
       <div className='mb-5'>
     
@@ -28,6 +31,7 @@ const Iphone = ({iphone}) => {
           <p className='font-bold text-left text-slate-700 '>Year Of Use: {iphone.use_year}</p>
          </div>
           <p className='font-bold text-slate-700 '>Condition: <span className='text-green-400 font-bold'>{iphone.condition}</span> </p> 
+          <p className='font-bold text-slate-500 mt-2 '><span className='text-slate-700'>Published Date:</span> {time} </p>
         </div>
       
       

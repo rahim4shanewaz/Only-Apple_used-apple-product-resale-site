@@ -2,9 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import ConfirmationModal from '../../components/modal/ConfirmationModal';
+import useHooks from '../../components/useTitles';
 import Loading from '../shared/loading/Loading';
 
 const AllBuyres = () => {
+    useHooks('Buyer')
 
     const [deletingBuyer, setDeletingBuyer] = useState(null);
     const closeModal = () => {

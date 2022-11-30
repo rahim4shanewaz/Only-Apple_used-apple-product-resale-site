@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useHooks from '../../components/useTitles';
 import { AuthContext } from '../../Context/ContextApi';
 import useToken from '../../hooks/useToken';
 
 const Register = () => {
+    useHooks('Register')
     const { user, loading } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);

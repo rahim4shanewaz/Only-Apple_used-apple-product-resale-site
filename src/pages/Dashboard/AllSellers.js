@@ -4,9 +4,11 @@ import toast from 'react-hot-toast';
 import ConfirmationModal from '../../components/modal/ConfirmationModal';
 import Loading from '../shared/loading/Loading';
 import verify from '../../assets/icons/icons8-approval.gif';
+import useHooks from '../../components/useTitles';
 
 
 const AllSellers = () => {
+    useHooks('Seller')
     const [deletingSeller, setDeletingSeller] = useState(null);
     const closeModal = () => {
         setDeletingSeller(null);
@@ -92,7 +94,7 @@ const AllSellers = () => {
                             <img className='h-7 w-7' src={verify} alt="" />
                          </div>
                        :
-                         <button onClick={() => handleVerify(seller._id) }className="text-slate-600 font-bold px-3 py-1 shadow bg-slate-200">Verify</button>
+                         <button onClick={() => handleVerify(seller._id) }className="text-slate-600 font-bold px-3 py-1 shadow bg-slate-200">Verifying</button>
                        }
 
                         <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmation-modal" className="btn btn-sm rounded-none btn-error">Delete</label>

@@ -60,15 +60,15 @@ const router = createBrowserRouter([
             },
             {
                 path:'/category/macbook',
-                element:<MacBookProducts></MacBookProducts>
+                element:<PrivateRoute><MacBookProducts></MacBookProducts></PrivateRoute>
             },
             {
                 path:'/category/iphone',
-                element:<IPhoneProducts></IPhoneProducts>
+                element:<PrivateRoute><IPhoneProducts></IPhoneProducts></PrivateRoute>
             },
             {
                 path:'/category/accessories',
-                element:<AccessoriesProducts></AccessoriesProducts>
+                element:<PrivateRoute><AccessoriesProducts></AccessoriesProducts></PrivateRoute>
             },
             
 

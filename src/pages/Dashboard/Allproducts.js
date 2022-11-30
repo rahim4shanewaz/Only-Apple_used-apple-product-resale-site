@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import useHooks from '../../components/useTitles';
 
 import { AuthContext } from '../../Context/ContextApi';
 import Loading from '../shared/loading/Loading';
 import Product from './Product';
 
 const Allproducts = () => {
+    useHooks('My Products')
     const { user, loading, dbUser } = useContext(AuthContext);
     // console.log(dbUser._id)
 

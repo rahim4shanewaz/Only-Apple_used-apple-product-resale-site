@@ -22,18 +22,24 @@ const NavBar = () => {
 // menubar dynamic
 
   const menuItems = <React.Fragment>
-    <li><Link to={'/'}> <small className='style-font'>HOME</small> </Link></li>
+
+    <li><Link to={'/category/macbook'}> <small className='hover:text-green-500'>MACBOOK</small> </Link></li>
+    <li><Link to={'/category/iphone'}> <small className='hover:text-green-500'>IPHONE</small> </Link></li>
+    <li><Link to={'/category/accessories'}> <small className='hover:text-green-500'>ACCESSORIES</small> </Link></li>
+    <div className="divider divider-horizontal"></div>
+    <li><Link to={'/'}> <small className='hover:text-green-500'>HOME</small> </Link></li>
+    
     <div className="divider divider-horizontal"></div>
    
-    <li><Link to={'/blog'}> <small className='style-font'>BLOG</small> </Link></li>
-    <div className="divider divider-horizontal"></div>
+    <li><Link to={'/blog'}> <small className='hover:text-green-500'>BLOG</small> </Link></li>
+    
 
   
     
     {user?.uid ?
             <>
                 
-                <li><button className='text-red-400' onClick={handleLogOut}> <small>LOGOUT</small> </button></li>
+                <li><button className='text-red-400' onClick={handleLogOut}> <small className='hover:text-white'>LOGOUT</small> </button></li>
                 
             </>
                :  <>
