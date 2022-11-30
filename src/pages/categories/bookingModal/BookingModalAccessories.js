@@ -25,6 +25,28 @@ const BookingModalAccessories = ({booking, isLoading, setBooking,refetch}) => {
         }
 
 
+
+
+        const   bookingByUser = {
+            user: dbUser._id,
+            product: booking.name,
+            img: booking.img
+         }
+    
+    
+         fetch('https://final-server-lovat.vercel.app/bookingByUser', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingByUser)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+        })
+
+
            fetch(`https://final-server-lovat.vercel.app/product/booking/${booking._id}`, {
             method: 'PUT', 
             headers: {

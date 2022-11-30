@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BuyerDash = ({dbUser}) => {
+
+    //buyer dash board
     return (
       
         <small><div className="lg:w-52 border text-white shadow-xl">

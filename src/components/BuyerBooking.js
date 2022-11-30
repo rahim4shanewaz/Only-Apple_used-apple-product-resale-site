@@ -7,6 +7,8 @@ import BuyerBookingProduct from './BuyerBookingProduct';
 
 const BuyerBooking = () => {
 
+    //booking function.
+
     const { user, loading, dbUser } = useContext(AuthContext);
 
     const { data: products, isLoading, refetch } = useQuery({

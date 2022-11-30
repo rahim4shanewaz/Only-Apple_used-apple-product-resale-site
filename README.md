@@ -8,6 +8,9 @@ A resale website Only for apple Product.
 2.Users can Add their own products for sale (seller)
 2.Users can Buy  products (Buyer)
 3.Client and Users Can delete their specific Product and Order
+4.seller can verified
+5 admin can delete or verify seller and buyer
+
 
 # Technology Used:
 React JS, JavaScript, HTML5, CSS-Tailwind, Node JS, Express JS,

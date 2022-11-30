@@ -4,6 +4,8 @@ import { AuthContext } from '../../../Context/ContextApi';
 import Loading from '../../shared/loading/Loading';
 
 const BookingModal = ({booking, isLoading, setBooking,refetch}) => {
+
+    //booking modal
     const { user, loading, dbUser } = useContext(AuthContext);
 
     const handleBooking = event =>{
