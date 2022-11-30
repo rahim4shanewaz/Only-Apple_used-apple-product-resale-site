@@ -1,9 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../Context/ContextApi';
+import BookingModal from './bookingModal/BookingModal';
 import ProductMacBook from './ProductMacBook';
 
 const MacBookProducts = () => {
-    const {data: macBooks = [], refetch} =useQuery({
+
+    const [booking, setBooking] = useState(null)
+   
+    const {data: macBooks = [], isLoading, refetch} =useQuery({
         queryKey:['macBooks'],
         queryFn: async() => {
             try{
@@ -28,11 +33,25 @@ const MacBookProducts = () => {
           {
                 macBooks.map(macBook => <ProductMacBook 
                     key={macBook._id}
-                    macBook={macBook}>
+                    macBook={macBook}
+                    setBooking={setBooking}
+                    refetch={refetch}>
 
                     </ProductMacBook>)
             }
           </div>
+
+          
+           {booking &&
+             <BookingModal
+             booking={booking}
+             setBooking={setBooking}
+             refetch={refetch}
+             isLoading={isLoading}></BookingModal>
+           }
+          
+
+
         </div>
     );
 };

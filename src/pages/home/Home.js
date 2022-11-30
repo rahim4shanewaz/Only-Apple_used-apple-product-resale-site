@@ -1,16 +1,18 @@
 import React from 'react';
+import AdvertiseSection from '../../components/advertiseSection/AdvertiseSection';
 import Information from '../../components/Information';
 import Categories from '../categories/Categories';
 import HomeCategories from '../homeCategories/HomeCategories';
 import Banner from './Banner';
 import Contact from './Contact';
-import MakeAppinment from './MakeAppinment';
+
 import Underbanner from './Underbanner';
 
 const Home = () => {
     return (
         <div>
            <Banner></Banner>
+           <AdvertiseSection></AdvertiseSection>
           <Categories></Categories>
           <div class="demos previews w100" data-version="17">
           <div  class="demo-1 aos-init aos-animate"
@@ -25,7 +27,7 @@ const Home = () => {
     
      </div>
           
-          <MakeAppinment></MakeAppinment>
+        
           <Contact></Contact>
          
         </div>

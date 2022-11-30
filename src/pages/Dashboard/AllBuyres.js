@@ -77,7 +77,7 @@ const AllBuyres = () => {
                         <h1 className='text-center text-green-500'>{buyer.name}</h1>
                         <h1 className='text-center text-red-500'>{buyer.email}</h1>
                         <h1 className='text-center'>{buyer.role}</h1>
-                        <button className="btn btn-outline btn-accent">Verify</button>
+                       
                         <button onClick={() => setDeletingBuyer(buyer) } className="btn btn-outline btn-error">Delete</button>
                         <label onClick={() => setDeletingBuyer(buyer)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                         </div>

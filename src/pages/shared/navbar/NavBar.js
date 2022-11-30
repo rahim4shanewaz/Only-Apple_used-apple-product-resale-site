@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import DashPanel from '../../../components/dash/DashPanel';
 import { AuthContext } from '../../../Context/ContextApi';
 
@@ -12,6 +12,7 @@ const NavBar = () => {
         logOut()
             .then(() => { })
             .catch(err => console.log(err));
+          
     }
 
 

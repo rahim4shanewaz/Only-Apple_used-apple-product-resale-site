@@ -5,8 +5,8 @@ const Accessories = ({accessory}) => {
         <div>
              <div>
                 <div className='mb-5'>
-       <div className="card w-96 bg-base-100 shadow-xl image-full">
-  <figure><img src={accessory.img} alt="Shoes" /></figure>
+       <div className="card w-full h-96 bg-base-100 shadow-xl image-full">
+  <figure><img className='h-full' src={accessory.img} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{accessory.name}</h2>
     <p></p>

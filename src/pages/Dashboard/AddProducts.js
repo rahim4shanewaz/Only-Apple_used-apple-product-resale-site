@@ -5,8 +5,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/ContextApi';
 import useToken from '../../hooks/useToken';
 
+
 const Register = () => {
-    const { user, loading } = useContext(AuthContext);
+    const { user, loading, dbUser } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
@@ -15,54 +16,54 @@ const Register = () => {
     const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
 
-  
-   
-   
+    
 
     if(token){
        
-        navigate('/');
+        navigate('/dashboard/sellers/allproducts');
+        
     }
 
 
 
     const handleSignUp = (data) => {
-        
-
-        setSignUPError('');
-        console.log(data.name)
-        console.log(data.selling_price)
-        console.log(data.original_price)
-        console.log(data.number)
-        console.log(data.location)
-        console.log(data.condition)
-        console.log(data.email)
-        console.log(data.category)
-        console.log(data.descriptions)
-        console.log(data.year)
-        console.log(data.use_year)
-
-       
-
-
-      
-                
-
-            // const image = data.image[0];
-            // const formData = new FormData();
-            // formData.append('image', image);
-            // const url = 'https://api.imgbb.com/1/upload?key=7cccad9c55fe0d936830ccdbb5d17f1b'
-            // fetch(url, {
-            //     method: 'POST',
-            //     body: formData
-            // })
-            // .then(res => res.json())
-            // .then(imgData => {
+          
+            const image = data.image[0];
+            const formData = new FormData();
+            formData.append('image', image);
+            const url = 'https://api.imgbb.com/1/upload?key=7cccad9c55fe0d936830ccdbb5d17f1b'
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(imgData => {
                
-            //     console.log(imgData.data.url)
+                
+                const product = {
+                    id: dbUser._id,
+                    name: data.name,
+                    condition: data.condition,
+                    location: data.location,
+                    category: data.category,
+                    email: data.email,
+                    purchase_year: data.year,
+                    use_year: data.use_year,
+                    img: imgData.data.url,
+                    original_price: data.original_price,
+                    selling_price: data.selling_price,
+                    number: data.number,
+                    description:data.descriptions,
+                    verify: dbUser.verify,
+                    seller_email:user.email,
+                    time:  new Date()
+                }
+                console.log(product)
+                saveUser(product);
                
     
-            // })
+            })
+        
            
     }
 
@@ -70,46 +71,27 @@ const Register = () => {
 
 
 
-
-
-   
-    
-
-
-
-    // const saveUser = (name, email, role, img) =>{
-    //     const user ={name, email, role, img};
+    const saveUser = (product) =>{
+        
         
        
-    //     fetch('http://localhost:5000/users', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data =>{
-    //         console.log(data)
-    //         setCreatedUserEmail(email);
-    //     })
-    // }
+        fetch('http://localhost:5000/addedproduct', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            toast.success(`product is added successfully`);
+            setCreatedUserEmail(product.seller_email);
+           
+        })
+    }
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
     return (
         <div className=' flex justify-center items-center'>
@@ -173,9 +155,9 @@ const Register = () => {
                     {...register('category')}
                     className="select select-bordered w-full max-w-xs">
                         <option disabled selected>What is category</option>
-                        <option>MacBook</option>
-                        <option>Headphone</option>
-                        <option>Tablet</option>
+                        <option>macBook</option>
+                        <option>iphone</option>
+                        <option>accessories</option>
                     </select>
                 </div>
                 <div className="form-control w-full max-w-xs">
@@ -268,9 +250,8 @@ const Register = () => {
                 <input className='btn btn-accent w-full mt-4' value="Add Your Product" type="submit" />
                 {signUpError && <p className='text-red-600'>{signUpError}</p>}
             </form>
-            {/* <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
-            <div className="divider">OR</div> */}
-            {/* <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button> */}
+
+           
 
         </div>
     </div>
@@ -280,44 +261,3 @@ const Register = () => {
 
 export default Register;
 
-
-
-
-
-
-
-
-
-
-const date = [
-    {
-      
-      "name": "Air Pod",
-      "condition": "Good",
-      "location": "Barishal",
-      "category": "Accessories",
-      "email": "jon@g.com",
-      "purchase_year": 2018,
-      "use_year": 3,
-      "img": "https://i.ibb.co/37scWzq/download.jpg",
-      "original_price": 300,
-      "selling_price": 150,
-      "number": 19000000000,
-      "description": "The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display.The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display."
-    },
-    {
-      
-      "name": "iphone Charger",
-      "condition": "Excellent",
-      "location": "Dhaka",
-      "category": "Accessories",
-      "email": "jabir@ya.com",
-      "purchase_year": 2020,
-      "use_year": 1,
-      "img": "https://i.ibb.co/fHt1pQp/images-2.jpg",
-      "original_price": 180,
-      "selling_price": 80,
-      "number": 19000000000,
-      "description": "The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display.The most powerful Mac lineup ever. Supercharged by Apple silicon. MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio, and Studio Display.."
-    }
-  ]

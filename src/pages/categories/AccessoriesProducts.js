@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import BookingModalAccessories from './bookingModal/BookingModalAccessories';
 import ProductAccessory from './ProductAccessory';
 
 const AccessoriesProducts = () => {
+    const [booking, setBooking] = useState(null)
 
-    const {data: accessories = [], refetch} =useQuery({
+
+    const {data: accessories = [], isLoading, refetch} =useQuery({
         queryKey:['accessories'],
         queryFn: async() => {
             try{
@@ -40,11 +43,20 @@ const AccessoriesProducts = () => {
             {
                 accessories.map(accessory => <ProductAccessory 
                     key={accessory._id}
-                    accessory={accessory}>
+                    accessory={accessory}
+                    setBooking={setBooking}
+                    refetch={refetch}>
 
                     </ProductAccessory>)
             }
           </div>
+          {booking &&
+             <BookingModalAccessories
+             booking={booking}
+             setBooking={setBooking}
+             refetch={refetch}
+             isLoading={isLoading}></BookingModalAccessories>
+           }
             
         </div>
     );

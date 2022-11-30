@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import ConfirmationModal from '../../components/modal/ConfirmationModal';
 import Loading from '../shared/loading/Loading';
+import verify from '../../assets/icons/icons8-approval.gif';
+
 
 const AllSellers = () => {
     const [deletingSeller, setDeletingSeller] = useState(null);
@@ -49,9 +51,7 @@ const AllSellers = () => {
         })
     }
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
+   
 
 
     const handleVerify = id => {
@@ -69,13 +69,9 @@ const AllSellers = () => {
             }
         })
     }
-
-
-
-
-
-
-
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
 
     return (
@@ -86,7 +82,7 @@ const AllSellers = () => {
             sellers.map(seller => <div
                 key={seller._id}
                 >
-                    <div className='flex gap-5 items-center shadow mt-2 bg-slate-100'>
+                    <div className='flex gap-5 items-center shadow-xl mt-2'>
                     <div className="avatar m-3">
                             <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={seller.img}  alt="" />
@@ -97,7 +93,9 @@ const AllSellers = () => {
                     <h1 className='text-center'>{seller.role}</h1>
                   
                        {seller?.verify ?
-                         <button className="btn btn-outline btn-error">Verified</button>
+                         <div>
+                            <img className='h-7 w-7' src={verify} alt="" />
+                         </div>
                        :
                          <button onClick={() => handleVerify(seller._id) }className="btn btn-outline btn-error">Verify</button>
                        }
