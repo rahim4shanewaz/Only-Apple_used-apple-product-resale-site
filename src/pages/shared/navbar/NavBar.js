@@ -19,7 +19,7 @@ const NavBar = () => {
 
 
 
-
+// menubar dynamic
 
   const menuItems = <React.Fragment>
     <li><Link to={'/'}> <small className='style-font'>HOME</small> </Link></li>
@@ -27,6 +27,8 @@ const NavBar = () => {
    
     <li><Link to={'/blog'}> <small className='style-font'>BLOG</small> </Link></li>
     <div className="divider divider-horizontal"></div>
+
+  
     
     {user?.uid ?
             <>

@@ -10,6 +10,7 @@ import Nouser from './Nouser';
 import SellerDash from './SellerDash';
 
 const DashPanel = () => {
+    // dashpanel seller, admi, buyer
     const { user, dbUser, userRole, loading } = useContext(AuthContext);
 
     const [isAdmin, isAdminLoading] = useAdmin(user?.email);
